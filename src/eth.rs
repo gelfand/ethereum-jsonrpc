@@ -205,6 +205,8 @@ pub trait EthApi {
     async fn get_logs(&self, filter: LogFilter) -> RpcResult<Vec<TransactionLog>>;
     #[method(name = "syncing")]
     async fn syncing(&self) -> RpcResult<SyncStatus>;
+    #[method(name = "sendRawTransaction")]
+    async fn send_raw_transaction(&self, rlp: Bytes) -> RpcResult<H256>;
 }
 
 #[cfg(test)]
